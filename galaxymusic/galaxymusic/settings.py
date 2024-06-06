@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import oracledb
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -83,11 +84,15 @@ WSGI_APPLICATION = 'galaxymusic.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'xe',
-        'USER': 'SYSTEM',
-        'PASSWORD': 'Jh21014779_9',
-        'HOST': '127.0.0.1',
-        'PORT': '1521',
+        'NAME': 'pruebasruby21014_low',
+        'USER': 'ADMIN',
+        'PASSWORD': 'Ruby.21014779-9',
+        'OPTIONS': {
+            "config_dir": "G:/Oracle/network/admin",
+            "wallet_location": "G:/Oracle/network/admin",
+            "wallet_password": "Ruby.21014779-9",     
+        }
+        
         
     }
 }
