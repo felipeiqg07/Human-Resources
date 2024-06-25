@@ -8,7 +8,7 @@ Ambiente virtual de python (en caso de tener windows)
 Djangorestframework
 
 Como ejecutar la Base de Datos, dentro de los ajustes de galaxymusic/galaxymusic/settings
-Se debe cambiar la configuración de la Base de datos e ingresar la localización de la wallet, la contraseña ya se encuentra ingresada.
+Se debe cambiar la configuración de la Base de datos e ingresar la localización de la wallet extraida, en este caso la carpeta admin de la entrega, la contraseña ya se encuentra ingresada.
 Alternativamente en caso de no lograr hacer funcionar la wallet se pueden ingresar los datos de una BDD local de Oracle.
 
 Nota:
