@@ -4,9 +4,9 @@ class Empleado(models.Model):
     nombre = models.CharField(max_length=100)
     apellido_p = models.CharField(max_length=100)
     apellido_m = models.CharField(max_length=100)
-    fec_nac = models.DateField()
     salario = models.IntegerField()
     fec_contra = models.DateField(auto_now_add=True)
+    correo = models.EmailField(max_length=100, default='no asignado')
     usuario = models.CharField(max_length=20)
     contrasena = models.CharField(max_length=20)
 

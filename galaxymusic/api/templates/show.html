@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Admin Empleados</title>  
+      
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
+</head>  
+<body>
+<!--Header-->
+<section>
+    <nav class="navbar  fixed-top" id="navbarhr">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="/" id="navbarlogo">RH GalaxyStore</a>
+          
+              <img src="{% static 'images/4x.png' %}" id="usuario" width="30" height="24">
+              <span class="justify-content-end" id="usuariot">Usuario</span> 
+          
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex mt-3" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </nav>
+</section>
+<br>
+<br>
+<br>
+<div id="algo">
+    <h3>Apartado de administración de usuarios</h3>
+    <p>Listado de usuarios registrados</p>
+    <table class="table table-striped table-bordered table-sm" >  
+        <thead class="thead-dark">  
+        <tr>  
+            <th>ID Empleado</th>  
+            <th>Nombre</th>  
+            <th>Apellido P.</th>  
+            <th>Apellido M.</th>  
+            <th>Salario</th>  
+            <th>Fecha Contratacion</th> 
+            <th>Correo</th> 
+            <th>Usuario</th>  
+            <th>Contraseña</th>
+            <th>Acciones</th>
+        </tr>  
+        </thead>  
+        <tbody>  
+    {% for empleado in empleados %}  
+        <tr>  
+            <td>{{ empleado.id }}</td>  
+            <td>{{ empleado.nombre }}</td>
+            <td>{{ empleado.apellido_p }}</td>
+            <td>{{ empleado.apellido_m }}</td>
+            <td>{{ empleado.salario }}</td>
+            <td>{{ empleado.fec_contra }}</td>
+            <td>{{ empleado.correo }}</td>
+            <td>{{ empleado.usuario }}</td>
+            <td>{{ empleado.contrasena }}</td>
+            <td>  
+                <a href="/api/edit/{{ empleado.id }}"><span class="glyphicon glyphicon-pencil" >Editar</span></a>  
+                <a href="/api/delete/{{ empleado.id }}">Eliminar</a>  
+            </td>  
+        </tr>  
+    {% endfor %}  
+        </tbody>  
+    </table>  
+    <br>  
+    <br>  
+    <center><a href="/api/emp" class="btn btn-primary">Agregar Nuevo Empleado</a></center>  
+</div>
+</body>  
+</html>  

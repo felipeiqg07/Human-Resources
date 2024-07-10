@@ -1,0 +1,6 @@
+projectKey=ApiHR
+serverUrl=http://localhost:9000
+serverVersion=10.6.0.92116
+dashboardUrl=http://localhost:9000/dashboard?id=ApiHR
+ceTaskId=a7359965-17fe-49a0-8634-fd287a8ac077
+ceTaskUrl=http://localhost:9000/api/ce/task?id=a7359965-17fe-49a0-8634-fd287a8ac077

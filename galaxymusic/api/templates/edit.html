@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Index</title>  
+    
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
+</head>  
+<body>
+  <section>
+    <nav class="navbar  fixed-top" id="navbarhr">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="/" id="navbarlogo">RH GalaxyStore</a>
+          
+              <img src="{% static 'images/4x.png' %}" id="usuario" width="30" height="24">
+              <span class="justify-content-end" id="usuariot">Usuario</span> 
+          
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex mt-3" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </section>
+  <br>
+  <br>
+  <div id="algo">
+    <form method="POST" class="post-form" action="/api/update/{{empleado.id}}">  
+            {% csrf_token %}  
+        <div class="container">  
+    <br>  
+        <div class="form-group row">  
+        <label class="col-sm-1 col-form-label"></label>  
+        <div class="col-sm-4">  
+        <h3>Actualizar detalles de empleado: {{ empleado.nombre }}</h3>  
+        </div>  
+      </div>   
+      <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Nombre:</label>  
+        <div class="col-sm-4">  
+            <input type="text" name="nombre" id="id_ename" required maxlength="100" value="{{ empleado.nombre }}" />  
+        </div>  
+      </div>  
+        <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Apellido Paterno:</label>  
+        <div class="col-sm-4">  
+            <input type="text" name="apellido_p" id="id_eemail" required maxlength="254" value="{{ empleado.apellido_p }}" />  
+        </div>  
+      </div>  
+        <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Apellido Materno:</label>  
+        <div class="col-sm-4">  
+            <input type="text" name="apellido_m" id="id_econtact" required maxlength="15" value="{{ empleado.apellido_m }}" />  
+        </div>  
+      </div>
+     
+      <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Salario:</label>  
+        <div class="col-sm-4">  
+          <input type="text" name="salario" id="id_econtact" required maxlength="15" value="{{ empleado.salario }}" />  
+        </div>  
+      </div>
+      <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Correo:</label>  
+        <div class="col-sm-4">  
+          <input type="text" name="correo" id="id_econtact" required maxlength="15" value="{{ empleado.correo }}" />  
+        </div>  
+      </div>
+      
+      <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Usuario:</label>  
+        <div class="col-sm-4">  
+          <input type="text" name="usuario" id="id_econtact" required maxlength="15" value="{{ empleado.usuario }}" />  
+        </div>  
+      </div>
+      <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Contraseña:</label>  
+        <div class="col-sm-4">  
+          <input type="text" name="contrasena" id="id_econtact" required maxlength="15" value="{{ empleado.contrasena }}" />  
+        </div>  
+      </div>
+        
+        <div class="form-group row">  
+        <label class="col-sm-1 col-form-label"></label>  
+        <div class="col-sm-4">  
+        <button type="submit" class="btn btn-primary">Actualizar empleado</button>  
+        </div>  
+      </div>  
+        </div>  
+    </form>
+  </div> 
+</body>  
+</html>  

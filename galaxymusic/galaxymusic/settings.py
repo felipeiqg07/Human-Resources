@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api.apps.ApiConfig',
     'rest_framework',
+    'rest_framework.authtoken',
     
 ]
 
@@ -88,8 +89,8 @@ DATABASES = {
         'USER': 'ADMIN',
         'PASSWORD': 'Ruby.21014779-9',
         'OPTIONS': {
-            "config_dir": "G:/Oracle/network/admin",
-            "wallet_location": "G:/Oracle/network/admin",
+            "config_dir": "./admin",
+            "wallet_location": "./admin",
             "wallet_password": "Ruby.21014779-9",     
         }
         
@@ -139,3 +140,20 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Configuracion de autenticacion
+AUTHENTICATION_BACKENDS = [
+    'api.authentication_backends.EmailOrUsernameModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+#Token RFW
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
