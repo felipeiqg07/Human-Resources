@@ -3,7 +3,9 @@ Paso a paso de como ejecutar programa:
   Abrir terminal en Directorio principal de Galaxymusic (no confundir con galaxymusic/galaxymusic directorio de ajustes)
   python -m venv venv
 2. Instalar requerimientos txt
-  luego de crear el venv se debe ejecutar el venv con venv\Scripts\activate, o source venv\bin\activate (slashes pueden variar segun OS)
+  luego de crear el venv se debe ejecutar el venv con venv\Scripts\activate, o source venv\bin\activate (slashes pueden variar segun OS),
+  luego, ejecutar dentro del terminal en el directorio principal el archivo requirements.txt con el siguiente comando:
+  pip install -r requirements.txt
 3. Ejecutar comando de runserver
   En el directorio principal ejecutar: python manage.py runserver
 
