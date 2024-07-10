@@ -1,25 +1,18 @@
-Requerimientos:
-Ejecutar pip install -r requirements.txt
+Paso a paso de como ejecutar programa:
+1. Crear VENV:
+  Abrir terminal en Directorio principal de Galaxymusic (no confundir con galaxymusic/galaxymusic directorio de ajustes)
+  python -m venv venv
+2. Instalar requerimientos txt
+  luego de crear el venv se debe ejecutar el venv con venv\Scripts\activate, o source venv\bin\activate (slashes pueden variar segun OS)
+3. Ejecutar comando de runserver
+  En el directorio principal ejecutar: python manage.py runserver
 
-En caso de  que no funcione el txt estos son los requerimientos:
-Oracledb (configurar base de datos local tambien)
-Django
-Ambiente virtual de python (en caso de tener windows)
-Djangorestframework
+A continuación se ejecutará el programa dentro del localhost
+Para probar el Endpoint creado por HR que permite a los programas de departamentos consumir la API se debe realizar una solicitud de POST al endpoint de http://127.0.0.1:8000/api/api-token-auth/,
+en caso de usar POSTMAN se debe enviar los siguientes parametros:
+  Body: Username admin
+        Password admin
+  Header: X-CSRFToken (token)
+  En caso de no contar con un csrf token este se debe extraer a traves de un GET al mismo endpoint, luego de enviar el GET en el apartado de cookies se encontrará el token de csrf
 
-Como ejecutar la Base de Datos, dentro de los ajustes de galaxymusic/galaxymusic/settings
-Se debe cambiar la configuración de la Base de datos e ingresar la localización de la wallet extraida, en este caso la carpeta admin de la entrega, la contraseña ya se encuentra ingresada.
-Alternativamente en caso de no lograr hacer funcionar la wallet se pueden ingresar los datos de una BDD local de Oracle.
-
-Nota:
-Quedó una app de poll de sobra por andar haciendo documentación,
-podría servir en caso de tener plazo de sobra y necesitar mas funciones.
-
-Como hacer funcionar POSTMAN:
-Iniciar el servidor y asegurarse de que todo de la app funciona bién
-Asegurarse de que se realizaron las migraciones a la BDD local
-Instalar la app de POSTMAN de escritorio
-Ingresar a la lista de Empleados u otra api
-Seleccionar GET como json
-Copiar URL de la pagina con los json
-En un nuevo archivo de POSTMAN ingresar la url del json del proyecto
+Actualmente el programa solo cuenta con un CRUD basico de empleados, un Login y el Endpoint mencionado anteriormente
